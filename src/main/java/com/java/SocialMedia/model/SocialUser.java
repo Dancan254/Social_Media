@@ -1,10 +1,13 @@
 package com.java.SocialMedia.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,4 +26,8 @@ public class SocialUser {
     @OneToOne
     @JoinColumn(name = "social_profile")
     private SocialProfile profile;
+
+    @OneToMany(mappedBy = "author")
+
+    List<Post> posts;
 }
